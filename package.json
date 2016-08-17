@@ -1,0 +1,38 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "A family/teacher communication tool that allows for everyone to keep up to date with whats going on in the classroom.",
+  "main": "y",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgusmano84/ClassroomCentral.git"
+  },
+  "author": "Matthew Gusmano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgusmano84/ClassroomCentral/issues"
+  },
+  "homepage": "https://github.com/mgusmano84/ClassroomCentral#readme",
+  "dependencies": {
+    "axios": "^0.13.1",
+    "body-parser": "^1.15.2",
+    "core-js": "^2.4.1",
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0",
+    "morgan": "^1.7.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "webpack": "^1.13.1"
+  }
+}
