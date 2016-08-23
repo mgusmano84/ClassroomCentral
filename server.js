@@ -41,15 +41,15 @@ app.set('view engine', 'handlebars');
 // -------------------------------------------------
 
 // MongoDB Configuration configuration (Change this URL to your own DB)
-var databaseUrl = 'Classroom';
-var collections = ["posts"];
+// var databaseUrl = 'Classroom';
+// var collections = ["posts"];
 
 // use mongojs to hook the database to the db variable 
-var db = mongojs(databaseUrl, collections);
+// var db = mongojs(databaseUrl, collections);
 
-db.on('error', function (err) {
-  console.log('MongoDB Error: ', err);
-});
+// db.on('error', function (err) {
+//   console.log('MongoDB Error: ', err);
+// });
 
 
 // -------------------------------------------------
