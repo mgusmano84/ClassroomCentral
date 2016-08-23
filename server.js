@@ -1,6 +1,9 @@
 // Include Server Dependencies
 var express = require('express');
+var flash = require('connect-flash');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var session = require('express-session');
 var logger = require('morgan');
 var mongojs = require('mongojs');
 
@@ -17,6 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
+
+
 
 //setting up handlebars
 var exphbs = require('express-handlebars');
