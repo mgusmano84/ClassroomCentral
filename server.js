@@ -8,6 +8,9 @@ var mongojs = require('mongojs');
 var app = express();
 var PORT = process.env.PORT || 3000; // Sets an initial port. We'll use this later in our listener
 
+// makes static content in assets accessible
+app.use(express.static(process.cwd() + '/assets'));
+
 // Run Morgan for Logging
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -15,8 +18,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-// makes static content in assets accessible
-app.use(express.static(process.cwd() + '/assets'));
+//setting up handlebars
+var exphbs = require('express-handlebars');
+var hbs = require('handlebars');
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 // -------------------------------------------------
 
@@ -38,12 +45,14 @@ db.on('error', function (err) {
 
 
 // //require routes
-// require('./routing/html-routes.js')(app);
+require('./routing/html-routes.js')(app);
 
-app.get('/', function(req, res){
-  res.sendFile('./assets/views/login.html' , { root : __dirname});
+// app.get('/', function(req, res){
+//   res.sendFile('./assets/views/login.html' , { root : __dirname});
   
-})
+// })
+
+
 
 
 
