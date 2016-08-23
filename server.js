@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-app.use(express.static('./public'));
+// makes static content in assets accessible
+app.use(express.static(process.cwd() + '/assets'));
 
 // -------------------------------------------------
 
@@ -33,9 +34,15 @@ db.on('error', function (err) {
 
 // -------------------------------------------------
 
-// Main Route. This route will redirect to our rendered React application
+
+
+
+// //require routes
+// require('./routing/html-routes.js')(app);
+
 app.get('/', function(req, res){
-  res.sendFile('./public/index.html');
+  res.sendFile('./assets/views/login.html' , { root : __dirname});
+  
 })
 
 
