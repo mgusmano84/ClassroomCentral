@@ -1,4 +1,6 @@
-// var orm = require('../config/orm.js');
+var orm = require('../config/orm.js');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 module.exports = function(app){
