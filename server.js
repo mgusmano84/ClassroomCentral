@@ -21,7 +21,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
+//session is used to keep the user logged in 
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
 
+//flash is used to show a message on an incorrect login
+app.use(flash());
+
+//passport middleware methods
+app.use(passport.initialize());
+app.use(passport.session());
 
 //setting up handlebars
 var exphbs = require('express-handlebars');
