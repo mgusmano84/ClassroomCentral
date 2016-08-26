@@ -14,7 +14,7 @@ var bourbon = require('node-bourbon');
  
 gulp.task('sass', function () {
 	/*will search for and compile all Sass files*/
-  	gulp.src('assets/**/*.scss')
+  	gulp.src('assets/scss/app.scss')
 
     //.pipe(sass().on('error', sass.logError))
     /*converts Sass to CSS within gulp-sass*/
@@ -29,5 +29,5 @@ gulp.task('sass', function () {
  
 gulp.task('sass:watch', function () {
 	/*listens to Sass*/
-  gulp.watch('assets/**/*.scss', ['sass']);
+  gulp.watch('assets/scss/*.scss', ['sass']);
 });
