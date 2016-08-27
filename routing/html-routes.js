@@ -1,7 +1,22 @@
 var orm = require('../config/orm.js');
 var UserAdd = require('../config/user.js');
 var passport = require('passport');
+var mongojs = require('mongojs');
 var LocalStrategy = require('passport-local').Strategy;
+
+
+// MongoDB Configuration configuration
+var databaseUrl = 'Classroom';
+var collections = ["posts"];
+
+// use mongojs to hook the database to the db variable 
+var db = mongojs(databaseUrl, collections);
+
+db.on('error', function (err) {
+  console.log('MongoDB Error: ', err);
+});
+
+
 
 function User (userObj) {
 	this.username = userObj.username
