@@ -43,7 +43,8 @@ module.exports = function(app){
 		
 			res.render('login', {
 				layout: 'main',
-				actionBtn: 'signin',
+				actionPush: 'signin',
+				otherAction: "Signup"
 			});
 
 	});
@@ -51,6 +52,15 @@ module.exports = function(app){
 	app.get('/signin', function(req, res){
 		res.redirect('/')
 	});
+
+	app.get('/signup', function(req, res){
+		res.render('login', {
+			layout: 'main',
+			newPass: "Type a new User name and Password",
+			actionPush: 'signup',
+			otherAction: "Signin"
+		});
+	});	
 
 
 	app.get('/userpage', function(req,res){
@@ -75,16 +85,16 @@ module.exports = function(app){
 		res.redirect('/userpage');
 	});	
 
-	// app.post('/signup', function(req, res){
-	// 	var user = new UserAdd(req.body);
-	// 	UserAdd.saveUser(user, function(status){
-	// 		if(!status) {
-	// 			res.redirect('/signup')
-	// 			return false
-	// 		}
-	// 		res.redirect('/');
-	// 	});
-	// });	
+	app.post('/signup', function(req, res){
+		var user = new UserAdd(req.body);
+		UserAdd.saveUser(user, function(status){
+			if(!status) {
+				res.redirect('/signup')
+				return false
+			}
+			res.redirect('/');
+		});
+	});	
 
 }
 
