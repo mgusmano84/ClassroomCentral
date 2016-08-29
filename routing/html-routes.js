@@ -9,6 +9,7 @@ passport.use(new LocalStrategy({passReqToCallback : true},
 
   	//Searching the ORM for the user in the database
   	orm.findUser(username, function(err, user){
+  		console.log (user);
   		user = user[0];
   		if (err) { return done(err); }
       if (!user) { return done(null, false); }

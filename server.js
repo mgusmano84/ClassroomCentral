@@ -38,39 +38,13 @@ var hbs = require('handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// -------------------------------------------------
-
-// // MongoDB Configuration configuration
-// var databaseUrl = 'Classroom';
-// var collections = ["posts"];
-
-// // use mongojs to hook the database to the db variable 
-// var db = mongojs(databaseUrl, collections);
-
-// db.on('error', function (err) {
-//   console.log('MongoDB Error: ', err);
-// });
 
 
-// -------------------------------------------------
-
-
-
-
-// //require routes
+//require routes
 require('./routing/html-routes.js')(app);
 
-// app.get('/', function(req, res){
-//   res.sendFile('./assets/views/login.html' , { root : __dirname});
-  
-// })
 
 
-
-
-
-
-// -------------------------------------------------
 
 // Listener
 app.listen(PORT, function() {
