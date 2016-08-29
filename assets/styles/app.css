@@ -1,8 +1,8 @@
 .colorMain {
   background-image: url("http://www.dreamtemplate.com/dreamcodes/bg_images/color/c5.jpg"); }
 
-.message {
-  font-size: 40px; }
+#message1 {
+  font-size: 18px; }
 
 h3 {
   background-color: green; }

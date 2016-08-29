@@ -56,7 +56,7 @@ module.exports = function(app){
 	app.get('/signup', function(req, res){
 		res.render('login', {
 			layout: 'main',
-			newPass: "Type a new User name and Password",
+			newPass: "Enter Credentials",
 			actionPush: 'signup',
 			otherAction: "Signin"
 		});
