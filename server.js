@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
 var logger = require('morgan');
-var mongojs = require('mongojs');
+// var mongojs = require('mongojs');
 
 // Create Instance of Express
 var app = express();
@@ -40,11 +40,11 @@ app.set('view engine', 'handlebars');
 
 // -------------------------------------------------
 
-// MongoDB Configuration configuration (Change this URL to your own DB)
+// // MongoDB Configuration configuration
 // var databaseUrl = 'Classroom';
 // var collections = ["posts"];
 
-// use mongojs to hook the database to the db variable 
+// // use mongojs to hook the database to the db variable 
 // var db = mongojs(databaseUrl, collections);
 
 // db.on('error', function (err) {
