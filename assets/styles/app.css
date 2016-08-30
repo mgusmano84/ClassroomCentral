@@ -4,6 +4,11 @@
 #message1 {
   font-size: 18px; }
 
+/*.stretch {
+	margin-top: 10%;
+	margin-bottom: 10%;
+	max-width: 50%;
+}*/
 body {
   overflow-x: hidden; }
 
@@ -101,6 +106,7 @@ body {
   color: #fff;
   background: none; }
 
+/*Page Resize*/
 @media (min-width: 768px) {
   #wrapper {
     padding-left: 250px; }
