@@ -4,6 +4,9 @@
 #message1 {
   font-size: 18px; }
 
+body {
+  overflow-x: hidden; }
+
 #pichead {
   max-height: 10%;
   max-width: 10%; }
@@ -14,9 +17,6 @@
 .mainhead {
   margin-top: 0px;
   margin-bottom: 0px; }
-
-body {
-  overflow-x: hidden; }
 
 /* Sidebar Toggles */
 #wrapper {
@@ -56,6 +56,13 @@ body {
   margin-right: -250px; }
 
 /* Sidebar Styles */
+#listname {
+  font-family: 'Roboto Slab', serif; }
+
+#userin {
+  font-size: 25px;
+  font-family: 'Schoolbell', cursive; }
+
 .sidebar-nav {
   position: absolute;
   top: 0;
