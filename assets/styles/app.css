@@ -4,5 +4,6 @@
 #message1 {
   font-size: 18px; }
 
-h3 {
-  background-color: green; }
+#pichead {
+  max-height: 10%;
+  max-width: 10%; }

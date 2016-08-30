@@ -66,8 +66,8 @@ module.exports = function(app){
 	app.get('/userpage', function(req,res){
 		if (req.isAuthenticated()) {
 			res.render('userpage', {
+				layout: 'user',
 				username: req.user.username,
-				layout: 'main',
 			})
 		} else {
 			res.redirect('/')
