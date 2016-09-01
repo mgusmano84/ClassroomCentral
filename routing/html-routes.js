@@ -64,10 +64,12 @@ module.exports = function(app){
 
 
 	app.get('/userpage', function(req,res){
+		console.log('req.user is',req.user)
 		if (req.isAuthenticated()) {
 			res.render('userpage', {
 				layout: 'user',
 				username: req.user.username,
+				// isTeacher: req.user.isTeacher
 			})
 		} else {
 			res.redirect('/')
@@ -95,6 +97,10 @@ module.exports = function(app){
 			res.redirect('/');
 		});
 	});	
+
+	// app.post('/addPost', function(req, res){
+	// 	var userId = req.user.userId;
+	// });
 
 }
 

@@ -3,20 +3,41 @@ create database ClassroomCentral;
 
 use ClassroomCentral;
 
+-- User Feature
+
 create table if not exists Users(
-   userId integer primary key auto_increment,
-   username varchar(100) unique,
-   password varchar(100)
+   'userId' integer primary key auto_increment,
+   'username' varchar(100) unique,
+   'password' varchar(100),
+   'isTeacher' boolean,
+   'classId' int(11),
+   'email' varchar(100),	
+   FOREIGN KEY (classId) REFERENCES Class(classId)
 )
 
+create table Class (
+	'classId' integer primary key auto_increment
+)
 
 -- Message Feature
 
-CREATE TABLE   Messages (
-`msg_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-`message` varchar(200) NOT NULL,
-`user_id` int(11) NOT NULL,
-`likes` int(11) DEFAULT NULL,
-`created` int(11) DEFAULT NULL,
-FOREIGN KEY (user_id) REFERENCES Users(userId)
+CREATE TABLE   Post (
+	`msg_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	`text` varchar(200) NOT NULL,
+	`userId` int(11) NOT NULL,
+	`created` int(11) DEFAULT NULL,
+	'classId' int(11),
+	FOREIGN KEY (classId) REFERENCES Class(classId),
+	FOREIGN KEY (userId) REFERENCES Users(userId)
+);
+
+-- Comment Feature
+
+CREATE TABLE Comments (
+	'text' varchar(200) NOT NULL,
+	'post_id' int(11) NOT NULL,
+	'created' int(11) DEFAULT NULL,
+	'userId' int(11) NOT NULL,
+	FOREIGN KEY (userId) REFERENCES Users(userId),
+	FOREIGN KEY (post_id) REFERENCES Post(msg_id)
 );
