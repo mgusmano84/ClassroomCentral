@@ -44,7 +44,7 @@ module.exports = function(app){
 			res.render('login', {
 				layout: 'main',
 				actionPush: 'signin',
-				otherAction: "Signup"
+				otherAction: "ForTeachers"
 			});
 
 	});
@@ -53,14 +53,27 @@ module.exports = function(app){
 		res.redirect('/')
 	});
 
-	app.get('/signup', function(req, res){
-		res.render('login', {
+	// app.get('/signup', function(req, res){
+	// 	res.render('login', {
+	// 		layout: 'main',
+	// 		newPass: "Enter Credentials",
+	// 		actionPush: 'signup',
+	// 		otherAction: "Signin"
+	// 	});
+	// });	
+
+		app.get('/forteachers', function(req, res){
+		res.render('teachercreate', {
 			layout: 'main',
 			newPass: "Enter Credentials",
-			actionPush: 'signup',
+			actionPush: 'forteachers',
 			otherAction: "Signin"
 		});
-	});	
+	});
+
+	// app.get('/newuser', function(req, res) {
+	// 	res.render
+	// })
 
 
 	app.get('/userpage', function(req,res){
@@ -69,7 +82,7 @@ module.exports = function(app){
 			res.render('userpage', {
 				layout: 'user',
 				username: req.user.username,
-				// isTeacher: req.user.isTeacher
+				isTeacher: req.user.isTeacher
 			})
 		} else {
 			res.redirect('/')
@@ -87,11 +100,12 @@ module.exports = function(app){
 		res.redirect('/userpage');
 	});	
 
-	app.post('/signup', function(req, res){
+	app.post('/forteachers', function(req, res){
 		var user = new UserAdd(req.body);
+		user.isTeacher = true;
 		UserAdd.saveUser(user, function(status){
 			if(!status) {
-				res.redirect('/signup')
+				res.redirect('/forteachers')
 				return false
 			}
 			res.redirect('/');

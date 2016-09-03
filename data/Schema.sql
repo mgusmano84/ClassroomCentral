@@ -6,27 +6,27 @@ use ClassroomCentral;
 -- User Feature
 
 create table if not exists Users(
-   'userId' integer primary key auto_increment,
-   'username' varchar(100) unique,
-   'password' varchar(100),
-   'isTeacher' boolean,
-   'classId' int(11),
-   'email' varchar(100),	
+   userId integer primary key auto_increment,
+   username varchar(100) unique,
+   password varchar(100),
+   isTeacher BOOLEAN DEFAULT NULL,
+   classId int(11),
+   email varchar(100),	
    FOREIGN KEY (classId) REFERENCES Class(classId)
-)
+   );
 
-create table Class (
-	'classId' integer primary key auto_increment
+   create table Class (
+	classId integer primary key auto_increment
 )
 
 -- Message Feature
 
 CREATE TABLE   Post (
-	`msg_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	`text` varchar(200) NOT NULL,
-	`userId` int(11) NOT NULL,
-	`created` int(11) DEFAULT NULL,
-	'classId' int(11),
+	msg_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	text varchar(200) NOT NULL,
+	userId int(11) NOT NULL,
+	created int(11) DEFAULT NULL,
+	classId int(11),
 	FOREIGN KEY (classId) REFERENCES Class(classId),
 	FOREIGN KEY (userId) REFERENCES Users(userId)
 );

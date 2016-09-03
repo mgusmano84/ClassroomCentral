@@ -6,6 +6,7 @@ var orm = require('../config/orm.js');
 function User (userObj) {
 	this.username = userObj.username
 	this.password = userObj.password
+	this.email = userObj.email
 }
 
 module.exports = User

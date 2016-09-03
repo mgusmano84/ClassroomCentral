@@ -20,10 +20,29 @@ function connectToDB(){
 module.exports.connectToDB = connectToDB;
 
 function addUserToDB(userObj, callback){
-	connection.query('INSERT INTO Users SET ?', userObj, function(err, results){
+
+	if (userObj.isTeacher) {
+		addNewClass(function(results, err){
+			userObj.classId = results.classId;
+			saveUserToDB(userObj);
+		})
+	} else {
+		saveUserToDB(userObj)
+	}
+
+	function saveUserToDB(newUserObj){
+		connection.query('INSERT INTO Users SET ?', newUserObj, function(err, results){
+			if (err) return callback(false, err)
+			callback(true, null)
+		});
+	}
+}
+
+function addNewClass(callback) {
+	connection.query('INSERT INTO Class', function(err, results){
 		if (err) return callback(false, err)
-		callback(true. null)
-	});
+		callback(results, null)
+	});	
 }
 
 module.exports.addUserToDB = addUserToDB;
