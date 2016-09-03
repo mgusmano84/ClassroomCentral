@@ -22,7 +22,8 @@ module.exports.connectToDB = connectToDB;
 function addUserToDB(userObj, callback){
 
 	if (userObj.isTeacher) {
-		addNewClass(function(results, err){
+		addNewClass(userObj, function(results, err){
+			console.log('results are',results, err);
 			userObj.classId = results.classId;
 			saveUserToDB(userObj);
 		})
@@ -38,8 +39,8 @@ function addUserToDB(userObj, callback){
 	}
 }
 
-function addNewClass(callback) {
-	connection.query('INSERT INTO Class', function(err, results){
+function addNewClass(userObj, callback) {
+	connection.query('INSERT INTO Class SET ?', {teacherName: userObj.username}, function(err, results){
 		if (err) return callback(false, err)
 		callback(results, null)
 	});	
