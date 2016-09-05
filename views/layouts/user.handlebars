@@ -81,6 +81,10 @@
 						  <div class="form-group">
 						    <label for="formGroupExampleInput">Post your questions or concerns</label>
 						    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Post away :)">
+						  
+  						<button class="btn btn-default" id="makeComment">Post a Comment</button>
+
+
 						  </div>
 						</form> 
 				    </div>
@@ -90,6 +94,37 @@
         <!-- /#page-content-wrapper -->
 
         </div>
+
+
+
+
+
+
+
+        {{!-- User Post Modal --}}
+        	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="commentModal">
+		<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<div class="modal-header">
+      				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      				<h1 class="modal-title">Classroom Central</h1>
+      			</div>
+      			<div class="modal-body">
+        			<form method="post" action="/search" id="searchForm">
+  						<div class="form-group">
+    						<label for="search">Please share your thoughts with the class</label>
+    						<input type="text" class="form-control" id="post1" placeholder="" name="search" required>
+ 						</div>
+  						<button class="btn btn-default" id="searchSubmit">Submit</button>
+
+
+
+
+					</form>
+      			</div>
+			</div>
+  		</div>
+	</div>
 
     
     </body>
