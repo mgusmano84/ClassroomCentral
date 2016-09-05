@@ -53,4 +53,19 @@ function findUser(username, callback){
 		callback(err, user)
 	})
 }
+
+// Add Post
+
+function makePost(postMessage, user){
+	postIt = [
+		postMessage,
+		user
+	]
+	connection.query('INSERT INTO Post (text, userId) VALUES (?, ?)', postIt, function(err, results){
+		if (err) throw err;
+		console.log(results);
+		});
+		console.log(query.sql)
+}
+
 module.exports.findUser = findUser;
