@@ -54,18 +54,21 @@ function findUser(username, callback){
 	})
 }
 
+module.exports.findUser = findUser;
+
 // Add Post
 
-function makePost(postMessage, user){
+function makePost(postMessage, userIn){
 	postIt = [
 		postMessage,
-		user
-	]
-	connection.query('INSERT INTO Post (text, userId) VALUES (?, ?)', postIt, function(err, results){
+		userIn
+	];
+	connection.query('INSERT INTO Post (text, userId) VALUES (?, ?)', [postMessage ,userIn], function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
-		console.log(query.sql)
+		// console.log(query.sql)
 }
 
-module.exports.findUser = findUser;
+module.exports.makePost = makePost;
+

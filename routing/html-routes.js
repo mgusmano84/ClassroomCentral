@@ -113,8 +113,9 @@ module.exports = function(app){
 	});	
 
 	app.post('/addPost', function(req, res){
+			console.log('itsgsd gsdgsdgsdgsdgsdg');
 
-			orm.makePost(req.body.post, req.user.userId);
+			// orm.makePost(req.body.post, req.user.userId);
 
 
 		// var userId = req.user.userId;
