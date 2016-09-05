@@ -113,13 +113,40 @@ module.exports = function(app){
 	});	
 
 	app.post('/addPost', function(req, res){
-			console.log('itsgsd gsdgsdgsdgsdgsdg');
+			console.log('is it there?' + req.user);
 
 			// orm.makePost(req.body.post, req.user.userId);
 
 
 		// var userId = req.user.userId;
 	});
+
+	app.get('/managestudents', function(req, res){
+		var userId = req.user.userId;
+		var isTeacher = req.user.isTeacher;
+		console.log(req.user.userId);
+		if (req.isAuthenticated()) {
+			res.render('addusers', {
+				layout: 'usersecond',
+				username: userId,
+				isTeacher: isTeacher,
+			})
+		} else {
+			res.redirect('/')
+		}		
+	});
+
+		app.post('/managestudents', function(req, res){
+		var user = new UserAdd(req.body);
+		user.isTeacher = false;
+		UserAdd.saveUser(user, function(status){
+			if(!status) {
+				res.redirect('/forteachers')
+				return false
+			}
+			res.redirect('/managestudents');
+		});
+	});	
 
 }
 

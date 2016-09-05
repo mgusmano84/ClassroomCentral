@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 
     //submits modal form and stores input in group object
-    $('#postSubmit').on('click',function(){
+    $('#makePost').on('click',function(){
        
             // var post = "";
              var posty = "";
@@ -29,7 +29,7 @@ $(document).ready(function(){
             $.post(currentURL + '/addPost', posty,
                 function(data){
                     if(data){
-                    $('#postModal').modal('hide');
+                    // $('#postModal').modal('hide');
                     console.log("new" + data);
                 }
                 });
