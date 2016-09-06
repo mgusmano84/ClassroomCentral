@@ -82,7 +82,8 @@ module.exports = function(app){
 			res.render('userpage', {
 				layout: 'user',
 				username: req.user.username,
-				isTeacher: req.user.isTeacher
+				isTeacher: req.user.isTeacher,
+				email: req.user.email
 			})
 		} else {
 			res.redirect('/')
