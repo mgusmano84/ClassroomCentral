@@ -38,6 +38,9 @@
                         Welcome {{username}}
                     </div>
                 </li>
+                <li>
+                    <a href="/userpage" id='listname'>Home</a>
+                </li>                
 				{{#if isTeacher}}
                 <li>
                     <a href="/managestudents" id='listname'>Manage Students</a>
@@ -64,78 +67,7 @@
             </ul>
         </div>
 
-        {{!-- Main Content --}}
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <!-- Teacher Content relating to homework and Upcoming Events -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Homework for this week</h1>
-                        <p>Upcoming Events to put on your calender</p>
-                    </div>
-                </div>
-                {{!-- Messaging Portion --}}
-                <div class="row">
-                    <div class="col-lg-12">
-						<form>
-						  <div class="form-group">
-						    <label for="formGroupExampleInput">Post your questions or concerns</label>
-						    <input type="text" class="form-control" id="postMain" method="post" action="/addPost"placeholder="Post away :)">
-						  </div>
-                          <button class="btn btn-default" id="makePost">Post a Comment</button>
-						</form> 
-
-
-				    </div>
-                </div> 
-
-                {{!-- Receive Posts --}}
-                <div class="row">
-                    <div class="col-lg-12">
-					
-
-
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-        </div>
-
-
-
-
-
-
-
-        {{!-- User Post Modal --}}
-{{!--         	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="postModal">
-		<div class="modal-dialog modal-sm">
-    		<div class="modal-content">
-    			<div class="modal-header">
-      				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      				<h1 class="modal-title">Classroom Central</h1>
-      			</div>
-      			<div class="modal-body">
-        			<form id="postForm">
-  						<div class="form-group">
-    						<label for="search">Please share your thoughts with the class</label>
-    						<input type="text" class="form-control" id="postMain" placeholder="">
- 						</div>
-  						<button class="btn btn-default" id="postSubmit">Submit</button>
-
-
-
-
-					</form>
-      			</div>
-			</div>
-  		</div>
-	</div> --}}
-
+        {{{body}}}
     
     </body>
 </html>

@@ -72,3 +72,13 @@ function makePost(postMessage, userIn){
 
 module.exports.makePost = makePost;
 
+function displayUsers(){
+	connection.query('SELECT * FROM Users WHERE isTeacher = 0', function(err, results){
+		if (err) throw err;
+		console.log("orm check:" + results);
+		});
+		
+}
+
+module.exports.displayUsers = displayUsers;
+

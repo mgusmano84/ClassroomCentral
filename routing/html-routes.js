@@ -123,14 +123,19 @@ module.exports = function(app){
 	});
 
 	app.get('/managestudents', function(req, res){
-		var userId = req.user.userId;
-		var isTeacher = req.user.isTeacher;
-		console.log(req.user.userId);
+		// var userId = req.user.userId;
+		// var isTeacher = req.user.isTeacher;
+		var userPull = [];
+		userPull = orm.displayUsers();
+		console.log("check this out: " + userPull);
+		//  
 		if (req.isAuthenticated()) {
 			res.render('addusers', {
-				layout: 'usersecond',
-				username: userId,
-				isTeacher: isTeacher,
+				layout: 'user',
+				username: req.user.username,
+				isTeacher: req.user.isTeacher,
+				email: req.user.email,
+				users: userPull
 			})
 		} else {
 			res.redirect('/')
@@ -148,6 +153,8 @@ module.exports = function(app){
 			res.redirect('/managestudents');
 		});
 	});	
+
+
 
 }
 
