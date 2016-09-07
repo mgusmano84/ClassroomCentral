@@ -148,7 +148,7 @@ module.exports = function(app){
 		}		
 	});
 
-
+	// This will open the editing section for teachers to add homework
 		app.get('/homework', function(req, res){
 
 		if (req.isAuthenticated()) {
