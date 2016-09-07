@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/mgusmano84/ClassroomCentral#readme",
   "dependencies": {
-    "axios": "^0.13.1",
     "body-parser": "^1.15.2",
     "connect-flash": "^0.1.1",
     "core-js": "^2.4.1",
@@ -35,8 +34,6 @@
     "node-neat": "^1.7.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
     "socket.io": "^1.4.8"
   },
   "devDependencies": {},
