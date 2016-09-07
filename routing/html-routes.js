@@ -113,6 +113,20 @@ module.exports = function(app){
 		});
 	});	
 
+    app.post('/adduser', function(req, res){
+        var user = new UserAdd(req.body);
+                user.classId = req.user.classId;
+                user.email = req.user.email;
+        user.isTeacher = false;
+        UserAdd.saveUser(user, function(status){
+            if(!status) {
+                res.redirect('/managestudents')
+                return false
+            }
+            res.redirect('/managestudents');
+        });
+    });	
+
 	app.post('/addPost', function(req, res){
 			console.log('is it there?' + req.user);
 
@@ -142,17 +156,17 @@ module.exports = function(app){
 		}		
 	});
 
-		app.post('/managestudents', function(req, res){
-		var user = new UserAdd(req.body);
-		user.isTeacher = false;
-		UserAdd.saveUser(user, function(status){
-			if(!status) {
-				res.redirect('/forteachers')
-				return false
-			}
-			res.redirect('/managestudents');
-		});
-	});	
+	// 	app.post('/managestudents', function(req, res){
+	// 	var user = new UserAdd(req.body);
+	// 	user.isTeacher = false;
+	// 	UserAdd.saveUser(user, function(status){
+	// 		if(!status) {
+	// 			res.redirect('/forteachers')
+	// 			return false
+	// 		}
+	// 		res.redirect('/managestudents');
+	// 	});
+	// });	
 
 		app.get('/homework', function(req, res){
 
