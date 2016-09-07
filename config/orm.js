@@ -21,30 +21,34 @@ module.exports.connectToDB = connectToDB;
 
 function addUserToDB(userObj, callback){
 
-	if (userObj.isTeacher) {
-		// addNewClass(userObj, function(results, err){
-		// 	console.log('results are',results, err);
-		// 	userObj.classId = results.classId;
-			saveUserToDB(userObj);
-		// })
-	} else {
-		saveUserToDB(userObj)
-	}
+    if (userObj.isTeacher) {
+        addNewClass(userObj, function(results, err){
+            console.log('results are',results, err);
+            userObj.classId = results.insertId;
+            saveUserToDB(userObj);
+        })
+    } else {
+        saveUserToDB(userObj)
+    }
 
-	function saveUserToDB(newUserObj){
-		connection.query('INSERT INTO Users SET ?', newUserObj, function(err, results){
-			if (err) return callback(false, err)
-			callback(true, null)
-		});
-	}
+    function saveUserToDB(newUserObj){
+        connection.query('INSERT INTO Users SET ?', newUserObj, function(err, results){
+            if (err) {
+                console.log(err) 
+                return callback(false, err)
+            }
+            console.log('results are 1', results)
+            callback(true, null)
+        });
+    }
 }
 
-// function addNewClass(userObj, callback) {
-// 	connection.query('INSERT INTO Class SET ?', {teacherName: userObj.username}, function(err, results){
-// 		if (err) return callback(false, err)
-// 		callback(results, null)
-// 	});	
-// }
+function addNewClass(userObj, callback) {
+    connection.query('INSERT INTO Class SET ?', {teacherName: userObj.username}, function(err, results){
+        if (err) return callback(false, err);
+        callback(results, null)
+    });    
+}
 
 module.exports.addUserToDB = addUserToDB;
 

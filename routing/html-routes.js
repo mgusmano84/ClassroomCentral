@@ -154,6 +154,20 @@ module.exports = function(app){
 		});
 	});	
 
+		app.get('/homework', function(req, res){
+
+		if (req.isAuthenticated()) {
+			res.render('homework', {
+				layout: 'user',
+				username: req.user.username,
+				isTeacher: req.user.isTeacher,
+				email: req.user.email,
+			})
+		} else {
+			res.redirect('/')
+		}		
+	});	
+
 
 
 }
