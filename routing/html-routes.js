@@ -53,14 +53,6 @@ module.exports = function(app){
 		res.redirect('/')
 	});
 
-	// app.get('/signup', function(req, res){
-	// 	res.render('login', {
-	// 		layout: 'main',
-	// 		newPass: "Enter Credentials",
-	// 		actionPush: 'signup',
-	// 		otherAction: "Signin"
-	// 	});
-	// });	
 
 		app.get('/forteachers', function(req, res){
 		res.render('teachercreate', {
@@ -156,17 +148,6 @@ module.exports = function(app){
 		}		
 	});
 
-	// 	app.post('/managestudents', function(req, res){
-	// 	var user = new UserAdd(req.body);
-	// 	user.isTeacher = false;
-	// 	UserAdd.saveUser(user, function(status){
-	// 		if(!status) {
-	// 			res.redirect('/forteachers')
-	// 			return false
-	// 		}
-	// 		res.redirect('/managestudents');
-	// 	});
-	// });	
 
 		app.get('/homework', function(req, res){
 
