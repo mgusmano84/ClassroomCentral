@@ -21,12 +21,15 @@ $(document).ready(function(){
     $('#makePost').on('click',function(){
        
             // var post = "";
-             var posty = "";
-             posty = $('#postMain').val().trim();
+             // var post = "";
+             // post = $('#postMain').val().trim();
 
-            console.log("this is it" + posty);
+            // console.log("this is it" + post);
             // post section
-            $.post(currentURL + '/addPost', posty,
+            $.post(currentURL + '/addPost', {
+                post: $('#postMain').val().trim(),
+            },
+
                 function(data){
                     if(data){
                     // $('#postModal').modal('hide');

@@ -120,9 +120,17 @@ module.exports = function(app){
     });	
 
 	app.post('/addPost', function(req, res){
-			console.log('is it there?' + req.user);
 
-			// orm.makePost(req.body.post, req.user.userId);
+			console.log('body' + req.body.post)
+			console.log('user' + req.user.userId);
+
+			if(req.isAuthenticated()){
+			orm.makePost(req.body.post, req.user.userId);
+		}
+		else {
+
+			res.redirect('/');
+		}
 
 
 		// var userId = req.user.userId;

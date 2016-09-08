@@ -67,7 +67,7 @@ function makePost(postMessage, userIn){
 		postMessage,
 		userIn
 	];
-	connection.query('INSERT INTO Post (text, userId) VALUES (?, ?)', [postMessage ,userIn], function(err, results){
+	connection.query('INSERT INTO Post (text, userId) VALUES (?, ?)',postIt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
