@@ -132,17 +132,15 @@ module.exports = function(app){
 			res.redirect('/');
 		}
 
-
-		// var userId = req.user.userId;
 	});
 
 	app.get('/managestudents', function(req, res){
 		// var userId = req.user.userId;
 		// var isTeacher = req.user.isTeacher;
 		var userPull = [];
-		userPull = orm.displayUsers();
+		userpull = orm.displayUsers(req.user.classId);
 		console.log("check this out: " + userPull);
-		//  
+		 
 		if (req.isAuthenticated()) {
 			res.render('addusers', {
 				layout: 'user',
