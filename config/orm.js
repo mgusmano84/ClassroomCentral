@@ -1,11 +1,19 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: process.argv[2],
-	database: 'ClassroomCentral'
+	host: 'uoa25ublaow4obx5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+	user: 'dfuzf8zr1cr8afi0',
+	password: l4261v79jydufzrt,
+	database: 'dqci7tkpo3j1ga42'
 });
+
+
+// var connection = mysql.createConnection({
+// 	host: 'localhost',
+// 	user: 'root',
+// 	password: process.argv[2],
+// 	database: 'dqci7tkpo3j1ga42'
+// });
 
 function connectToDB(){
 	connection.connect(function(err){
