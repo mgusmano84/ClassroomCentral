@@ -1,12 +1,14 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-	host: 'uoa25ublaow4obx5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-	user: 'dfuzf8zr1cr8afi0',
-	password: l4261v79jydufzrt,
-	database: 'dqci7tkpo3j1ga42'
-});
+var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+
+  console.log('The solution is: ', rows[0].solution);
+});
 
 // var connection = mysql.createConnection({
 // 	host: 'localhost',
