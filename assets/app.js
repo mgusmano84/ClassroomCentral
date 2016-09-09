@@ -42,7 +42,15 @@ $(document).ready(function(){
     }); // end of post modal form
 
 
+    // $('#makePostone').on('click',function(){
+    //                 $.post(currentURL + '/homework', {
+    //             post: $('#postHomework').val().trim(),
+    //         },
 
-
+    //             function(data){
+    //                 if(data){
+    //                 console.log("new" + data);
+    //             }
+    //             });
 
 })

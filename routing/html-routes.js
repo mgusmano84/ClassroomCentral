@@ -137,21 +137,20 @@ module.exports = function(app){
 	app.get('/managestudents', function(req, res){
 		// var userId = req.user.userId;
 		// var isTeacher = req.user.isTeacher;
-		var userPull = [];
-		userpull = orm.displayUsers(req.user.classId);
-		console.log("check this out: " + userPull);
-		 
-		if (req.isAuthenticated()) {
+		orm.displayUsers(req.user.classId, function(results){
+			console.log("check this out: " + results);
+			if (req.isAuthenticated()) {
 			res.render('addusers', {
 				layout: 'user',
 				username: req.user.username,
 				isTeacher: req.user.isTeacher,
 				email: req.user.email,
-				users: userPull
+				userData: results
 			})
 		} else {
 			res.redirect('/')
-		}		
+		}	
+		});
 	});
 
 	// This will open the editing section for teachers to add homework
@@ -168,6 +167,21 @@ module.exports = function(app){
 			res.redirect('/')
 		}		
 	});	
+
+		app.post('/homework', function(req, res){
+
+			console.log('body' + req.body.post)
+			console.log('user' + req.user.userId);
+
+			if(req.isAuthenticated()){
+			orm.homeworkPost(req.body.post, req.user.userId);
+		}
+		else {
+
+			res.redirect('/');
+		}
+
+	});
 
 
 

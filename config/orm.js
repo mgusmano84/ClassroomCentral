@@ -76,13 +76,38 @@ function makePost(postMessage, userIn){
 
 module.exports.makePost = makePost;
 
-function displayUsers(ClassID){
+function displayUsers(ClassID, callback){
 	connection.query('SELECT * FROM Users WHERE isTeacher = 0 AND classId =?' , {ClassID: ClassID}, function(err, results){
 		if (err) throw err;
 		console.log("orm check:" + results);
+		callback(results)
 		});
 		
 }
 
 module.exports.displayUsers = displayUsers;
 
+function displayPost(ClassID){
+	connection.query('SELECT * FROM Post WHERE classId =?' , {ClassID: ClassID}, function(err, results){
+		if (err) throw err;
+		console.log("orm check:" + results);
+		});
+		
+}
+
+module.exports.displayPost = displayPost;
+
+
+function homeworkPost(homeworkPost, userIn){
+	postIt = [
+		homeworkPost,
+		userIn
+	];
+	connection.query('INSERT INTO homework (text, userId) VALUES (?, ?)',postIt, function(err, results){
+		if (err) throw err;
+		console.log(results);
+		});
+		
+}
+
+module.exports.homeworkPost = homeworkPost;
