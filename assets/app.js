@@ -56,4 +56,19 @@ $(document).ready(function(){
                 });
     });
 
+    $('#makePosttwo').on('click',function(){
+        console.log($('#postEvents').val().trim());
+
+                    $.post(currentURL + '/newEvents', {
+                post: $('#postEvents').val().trim(),
+            },
+
+                function(data){
+                    if(data){
+                    console.log("new" + data);
+                }
+                });
+    });
+
+
 })

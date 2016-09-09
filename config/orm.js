@@ -111,3 +111,17 @@ function homeworkPost(homeworkPost, userIn){
 }
 
 module.exports.homeworkPost = homeworkPost;
+
+function eventPost(eventPost, userIn){
+	postIt = [
+		eventPost,
+		userIn
+	];
+	connection.query('INSERT INTO NewEvents (text, userId) VALUES (?, ?)',postIt, function(err, results){
+		if (err) throw err;
+		console.log(results);
+		});
+		
+}
+
+module.exports.eventPost = eventPost;

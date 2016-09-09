@@ -183,6 +183,21 @@ module.exports = function(app){
 
 	});
 
+		app.post('/newEvents', function(req, res){
+
+			console.log('body' + req.body.post)
+			console.log('user' + req.user.userId);
+
+			if(req.isAuthenticated()){
+			orm.eventPost(req.body.post, req.user.userId);
+		}
+		else {
+
+			res.redirect('/');
+		}
+
+	});		
+
 
 
 }
