@@ -71,6 +71,7 @@ module.exports = function(app){
 	app.get('/userpage', function(req,res){
 		console.log('req.user is',req.user);
 		orm.displayPost(req.user.classId, function(results){
+			console.log("I made it");
 		if (req.isAuthenticated()) {
 			res.render('userpage', {
 				layout: 'user',

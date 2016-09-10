@@ -72,11 +72,11 @@ module.exports.findUser = findUser;
 
 // Add Post
 
-function makePost(postMessage, userIn, userid){
+function makePost(postMessage, userIn, classId){
 	postIt = [
 		postMessage,
 		userIn,
-		userid
+		classId
 	];
 	connection.query('INSERT INTO Post (text, userId, classId) VALUES (?, ?, ?)',postIt, function(err, results){
 		if (err) throw err;
@@ -88,7 +88,7 @@ function makePost(postMessage, userIn, userid){
 module.exports.makePost = makePost;
 
 function displayUsers(ClassID, callback){
-	connection.query('SELECT * FROM Users WHERE isTeacher = 0 AND classId =?' , {ClassID: ClassID}, function(err, results){
+	connection.query('SELECT * FROM Users WHERE isTeacher = 0 AND classId =?' , ClassID, function(err, results){
 		if (err) throw err;
 		console.log("orm check:" + results);
 		callback(results)
@@ -99,7 +99,8 @@ function displayUsers(ClassID, callback){
 module.exports.displayUsers = displayUsers;
 
 function displayPost(ClassID, callback){
-	connection.query('SELECT * FROM Post WHERE classId =?' , {ClassID: ClassID}, function(err, results){
+	console.log("CLassid" + ClassID);
+	connection.query('SELECT * FROM Post WHERE classId = ?' , ClassID, function(err, results){
 		if (err) throw err;
 		console.log("orm check:" + results);
 		callback(results)
