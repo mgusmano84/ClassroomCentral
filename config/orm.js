@@ -72,13 +72,14 @@ module.exports.findUser = findUser;
 
 // Add Post
 
-function makePost(postMessage, userIn, classId){
+function makePost(postMessage, userIn, classId, userName){
 	postIt = [
 		postMessage,
 		userIn,
-		classId
+		classId,
+		userName
 	];
-	connection.query('INSERT INTO Post (text, userId, classId) VALUES (?, ?, ?)',postIt, function(err, results){
+	connection.query('INSERT INTO Post (text, userId, classId, usernameP) VALUES (?, ?, ?, ?)',postIt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});

@@ -69,13 +69,14 @@ module.exports = function(app){
 
 
 	app.get('/userpage', function(req,res){
-		console.log('req.user is',req.user);
+		// var userlogged = req.user.username;
+		// console.log(userlogged);
 		orm.displayPost(req.user.classId, function(results){
 			console.log("I made it");
 		if (req.isAuthenticated()) {
 			res.render('userpage', {
 				layout: 'user',
-				username: req.user.username,
+				// username1: userlogged,
 				isTeacher: req.user.isTeacher,
 				email: req.user.email,
 				posts: results
@@ -158,7 +159,7 @@ module.exports = function(app){
 			// req.user.classId = req.user.classId;
 
 			if(req.isAuthenticated()){
-			orm.makePost(req.body.post, req.user.userId, req.user.classId);
+			orm.makePost(req.body.post, req.user.userId, req.user.classId, req.user.username);
 		}
 		else {
 
