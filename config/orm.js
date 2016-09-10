@@ -72,12 +72,13 @@ module.exports.findUser = findUser;
 
 // Add Post
 
-function makePost(postMessage, userIn){
+function makePost(postMessage, userIn, userid){
 	postIt = [
 		postMessage,
-		userIn
+		userIn,
+		userid
 	];
-	connection.query('INSERT INTO Post (text, userId) VALUES (?, ?)',postIt, function(err, results){
+	connection.query('INSERT INTO Post (text, userId, classId) VALUES (?, ?, ?)',postIt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
@@ -97,10 +98,11 @@ function displayUsers(ClassID, callback){
 
 module.exports.displayUsers = displayUsers;
 
-function displayPost(ClassID){
+function displayPost(ClassID, callback){
 	connection.query('SELECT * FROM Post WHERE classId =?' , {ClassID: ClassID}, function(err, results){
 		if (err) throw err;
 		console.log("orm check:" + results);
+		callback(results)
 		});
 		
 }

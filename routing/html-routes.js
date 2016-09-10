@@ -69,18 +69,49 @@ module.exports = function(app){
 
 
 	app.get('/userpage', function(req,res){
-		console.log('req.user is',req.user)
+		console.log('req.user is',req.user);
+		orm.displayPost(req.user.classId, function(results){
 		if (req.isAuthenticated()) {
 			res.render('userpage', {
 				layout: 'user',
 				username: req.user.username,
 				isTeacher: req.user.isTeacher,
-				email: req.user.email
+				email: req.user.email,
+				posts: results
 			})
 		} else {
 			res.redirect('/')
 		}
+	});
 	});	
+
+
+
+		// // var userId = req.user.userId;
+		// // var isTeacher = req.user.isTeacher;
+		// orm.displayUsers(req.user.classId, function(results){
+		// 	console.log("check this out: " + results);
+		// 	if (req.isAuthenticated()) {
+		// 	res.render('addusers', {
+		// 		layout: 'user',
+		// 		username: req.user.username,
+		// 		isTeacher: req.user.isTeacher,
+		// 		email: req.user.email,
+		// 		userData: results
+		// 	})
+		// } else {
+		// 	res.redirect('/')
+		// }	
+		// });
+
+
+
+
+
+
+
+
+
 
 	app.get('/logout', function(req, res){
 	  req.logout();
@@ -123,9 +154,10 @@ module.exports = function(app){
 
 			console.log('body' + req.body.post)
 			console.log('user' + req.user.userId);
+			// req.user.classId = req.user.classId;
 
 			if(req.isAuthenticated()){
-			orm.makePost(req.body.post, req.user.userId);
+			orm.makePost(req.body.post, req.user.userId, req.user.classId);
 		}
 		else {
 
