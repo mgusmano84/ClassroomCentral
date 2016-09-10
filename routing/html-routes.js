@@ -170,8 +170,9 @@ module.exports = function(app){
 
 		app.post('/deletePost', function(req, res){
 
+			console.log('req', req.body)
 			if(req.isAuthenticated()){
-				orm.deletePost(req.post.msg_id, function(results){ 	
+				orm.deletePost(req.body.msg_id, function(results){ 	
 				});
 			}	
 		else {

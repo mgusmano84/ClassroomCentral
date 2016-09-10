@@ -52,7 +52,7 @@ $(document).ready(function(){
                 function(data){
                     if(data){
                     console.log("new" + data);
-                }
+                    }
                 });
     });
 
@@ -72,14 +72,17 @@ $(document).ready(function(){
 
 
     $('#dPost').on('click',function(){
-                    $.post(currentURL + '/deletePost', {            
-            },
-                function(data){
-                    if(data){
-                    console.log("new" + data);
-                }
-                });
+        var msg_id = $(this).attr('data-id');
+            $.post('/deletePost', {msg_id: msg_id},
+            function(data){
+                $(this).parent().parent().remove();
+                if(data){
+                console.log("new" + data);
+            }
+        });
     });    
 
 
 })
+
+
