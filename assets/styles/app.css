@@ -25,7 +25,10 @@ body {
 
 .mainhead {
   margin-top: 0px;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  position: fixed;
+  z-index: 1;
+  background-color: grey; }
 
 /* Sidebar Toggles */
 #wrapper {
@@ -39,8 +42,8 @@ body {
   padding-left: 250px; }
 
 #sidebar-wrapper {
-  z-index: 1000;
   position: fixed;
+  top: 57px;
   left: 250px;
   width: 0;
   height: 100%;
@@ -109,6 +112,9 @@ body {
 .sidebar-nav > .sidebar-brand a:hover {
   color: #fff;
   background: none; }
+
+.reusable-padding {
+  padding-top: 6em; }
 
 /*Page Resize*/
 @media (min-width: 768px) {
