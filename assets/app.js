@@ -71,4 +71,15 @@ $(document).ready(function(){
     });
 
 
+    $('#dPost').on('click',function(){
+                    $.post(currentURL + '/deletePost', {            
+            },
+                function(data){
+                    if(data){
+                    console.log("new" + data);
+                }
+                });
+    });    
+
+
 })

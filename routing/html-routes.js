@@ -168,6 +168,22 @@ module.exports = function(app){
 
 	});
 
+		app.post('/deletePost', function(req, res){
+
+			if(req.isAuthenticated()){
+				orm.deletePost(req.post.msg_id, function(results){ 	
+				});
+			}	
+		else {
+
+			res.redirect('/');
+		}
+		
+		});
+
+
+		// LOOK at comma's and brackets
+
 	app.get('/managestudents', function(req, res){
 		// var userId = req.user.userId;
 		// var isTeacher = req.user.isTeacher;

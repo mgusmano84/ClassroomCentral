@@ -88,6 +88,17 @@ function makePost(postMessage, userIn, classId, userName){
 
 module.exports.makePost = makePost;
 
+function deletePost(msgId, callback){
+		connection.query('DELETE FROM Post WHERE msg_id = ? limit 1' , msgId, function(err, results){
+		if (err) throw err;
+		console.log(results);
+		callback(results)
+		});
+}
+
+module.exports.deletePost = deletePost;
+
+
 function displayUsers(ClassID, callback){
 	connection.query('SELECT * FROM Users WHERE isTeacher = 0 AND classId =?' , ClassID, function(err, results){
 		if (err) throw err;

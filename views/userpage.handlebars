@@ -27,11 +27,14 @@
                 {{!-- Receive Posts --}}
                 <div class="row">
                     <div class="col-lg-12">
-					
+					          <table id="postTable">
                     {{#each posts}}
-                    <h1>Post from: {{usernameP}}</h1>
-                    <h1>{{text}}</h1>
+                    <tr class="tr">
+                    <td class="td">Post from: {{usernameP}}</td>
+                    <td class="td">{{text}} <button id="dPost">delete</button></td>
+                    </tr>
                     {{/each}}
+                    </table>
 
 
                     </div>
