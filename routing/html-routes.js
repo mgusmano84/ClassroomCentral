@@ -35,7 +35,7 @@ passport.deserializeUser(function(user, done) {
 
 module.exports = function(app){
 
-	// GET Routes
+// GET Routes
 
 // Main Route. This route will redirect to our rendered React application
 
@@ -69,8 +69,8 @@ module.exports = function(app){
 
 
 	app.get('/userpage', function(req,res){
-		// var userlogged = req.user.username;
-		// console.log(userlogged);
+		// console.log("user" req.user);
+		// console.log("classid" req.user.classId);
 		orm.displayPost(req.user.classId, function(results){
 			console.log("I made it");
 		if (req.isAuthenticated()) {
@@ -212,7 +212,7 @@ module.exports = function(app){
 				layout: 'user',
 				username: req.user.username,
 				isTeacher: req.user.isTeacher,
-				email: req.user.email,
+				email: req.user.email
 			})
 		} else {
 			res.redirect('/')
@@ -225,7 +225,7 @@ module.exports = function(app){
 			console.log('user' + req.user.userId);
 
 			if(req.isAuthenticated()){
-			orm.homeworkPost(req.body.post, req.user.userId);
+			orm.homeworkPost(req.body.post, req.user.userId, req.user.classId);
 		}
 		else {
 
@@ -236,11 +236,13 @@ module.exports = function(app){
 
 		app.post('/newEvents', function(req, res){
 
-			console.log('body' + req.body.post)
+			console.log('body' + req.body.post);
+			console.log('id' + req.user.classId);
 			console.log('user' + req.user.userId);
 
+
 			if(req.isAuthenticated()){
-			orm.eventPost(req.body.post, req.user.userId);
+			orm.eventPost(req.body.post, req.user.userId, req.user.classId);
 		}
 		else {
 

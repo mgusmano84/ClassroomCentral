@@ -123,12 +123,13 @@ function displayPost(ClassID, callback){
 module.exports.displayPost = displayPost;
 
 
-function homeworkPost(homeworkPost, userIn){
+function homeworkPost(homeworkPost, userIn, classId){
 	postIt = [
 		homeworkPost,
-		userIn
+		userIn,
+		classId
 	];
-	connection.query('INSERT INTO homework (text, userId) VALUES (?, ?)',postIt, function(err, results){
+	connection.query('INSERT INTO homework (text, userId, classId) VALUES (?, ?, ?)',postIt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
@@ -137,12 +138,13 @@ function homeworkPost(homeworkPost, userIn){
 
 module.exports.homeworkPost = homeworkPost;
 
-function eventPost(eventPost, userIn){
+function eventPost(eventPost, userIn, classId){
 	postIt = [
 		eventPost,
-		userIn
+		userIn,
+		classId
 	];
-	connection.query('INSERT INTO NewEvents (text, userId) VALUES (?, ?)',postIt, function(err, results){
+	connection.query('INSERT INTO NewEvents (text, userId, ClassId) VALUES (?, ?, ?)',postIt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
