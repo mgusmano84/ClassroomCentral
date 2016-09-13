@@ -4,8 +4,14 @@
                 <!-- Teacher Content relating to homework and Upcoming Events -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Homework for this week</h1>
-                        <p>Upcoming Events to put on your calender</p>
+                    <h1>Homework for the Week</h1>
+                        {{#each homework}}
+                        <p>{{text}}</p>
+                        {{/each}}
+                    <h1>Upcoming Events</h1>
+                        {{#each events}}
+                        <p>{{text}}</p>
+                        {{/each}}
                     </div>
                 </div>
                 {{!-- Messaging Portion --}}

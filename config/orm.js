@@ -152,3 +152,26 @@ function eventPost(eventPost, userIn, classId){
 }
 
 module.exports.eventPost = eventPost;
+
+
+function displayHomework(ClassID, callback){
+	connection.query('SELECT * FROM Homework WHERE classId = ?' , ClassID, function(err, results){
+		if (err) throw err;
+		console.log("orm check:" + results);
+		callback(results)
+		});
+		
+}
+
+module.exports.displayHomework = displayHomework;
+
+function displayEvents(ClassID, callback){
+	connection.query('SELECT * FROM NewEvents WHERE classId = ?' , ClassID, function(err, results){
+		if (err) throw err;
+		console.log("orm check:" + results);
+		callback(results)
+		});
+		
+}
+
+module.exports.displayEvents = displayEvents;

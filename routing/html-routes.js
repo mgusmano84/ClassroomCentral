@@ -71,7 +71,11 @@ module.exports = function(app){
 	app.get('/userpage', function(req,res){
 		// console.log("user" req.user);
 		// console.log("classid" req.user.classId);
-		orm.displayPost(req.user.classId, function(results){
+		userMainid = req.user.classId;
+
+		orm.displayHomework(userMainid, function(resultsHomework){	
+		orm.displayEvents(userMainid, function(resultsEvents){	
+		orm.displayPost(userMainid, function(results){
 			console.log("I made it");
 		if (req.isAuthenticated()) {
 			res.render('userpage', {
@@ -79,12 +83,17 @@ module.exports = function(app){
 				// username1: userlogged,
 				isTeacher: req.user.isTeacher,
 				email: req.user.email,
-				posts: results
+				posts: results,
+				homework: resultsHomework,
+				events: resultsEvents
 			})
+
 		} else {
 			res.redirect('/')
 		}
-	});
+		});
+		});
+		});
 	});	
 
 
@@ -221,8 +230,8 @@ module.exports = function(app){
 
 		app.post('/homework', function(req, res){
 
-			console.log('body' + req.body.post)
-			console.log('user' + req.user.userId);
+			// console.log('body' + req.body.post)
+			// console.log('user' + req.user.userId);
 
 			if(req.isAuthenticated()){
 			orm.homeworkPost(req.body.post, req.user.userId, req.user.classId);
