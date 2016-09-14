@@ -41,16 +41,26 @@ tr:nth-child(even) {
     font-family: 'Schoolbell', cursive;
     font-size: 30px;
     text-decoration: underline;
+    /*background-color: pink;*/
 }
 
 .homeout {
-    font-family: 'Merriweather', serif;
+    font-family: 'Libre Baskerville', serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
+    background-color: lightblue;
 }
 
 .groupchange {
     width: 50%;
+}
+
+#makepost {
+    size: 10%;
+}
+
+#postlabel {
+    font-size: 17px;
 }
 
 

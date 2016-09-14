@@ -58,26 +58,25 @@ $(document).ready(function(){
 
     $('#makePosttwo').on('click',function(){
         console.log($('#postEvents').val().trim());
-
-                    $.post(currentURL + '/newEvents', {
-                post: $('#postEvents').val().trim(),
-            },
-
-                function(data){
-                    if(data){
-                    console.log("new" + data);
-                }
-                });
+        $.post(currentURL + '/newEvents', {
+            post: $('#postEvents').val().trim(),
+        }).done(function(data){
+            console.log("new" + data);
+            
+        });
     });
 
 
     $('#dPost').on('click',function(){
         var msg_id = $(this).attr('data-id');
+        $(this).parent().parent().remove();
             $.post('/deletePost', {msg_id: msg_id},
             function(data){
                 $(this).parent().parent().remove();
+                
                 if(data){
                 console.log("new" + data);
+
             }
         });
     });    
