@@ -4,11 +4,25 @@
                 <!-- Teacher Content relating to homework and Upcoming Events -->
                 <div class="row">
                     <div class="col-lg-12">
-                    <h1>Homework for the Week</h1>
+                    <h1 id="homeworkstyle">Homework for the Week</h1>
+                        <ul class="list-group groupchange">
                         {{#each homework}}
-                        <p>{{text}}</p>
+                        <li class="list-group-item homeout">{{text}}</li>
                         {{/each}}
-                    <h1>Upcoming Events</h1>
+                        </ul>
+
+
+{{!-- <ul class="list-group">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul> --}}
+
+
+
+                    <h1 id="homeworkstyle">Upcoming Events</h1>
                         {{#each events}}
                         <p>{{text}}</p>
                         {{/each}}

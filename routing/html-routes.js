@@ -69,9 +69,9 @@ module.exports = function(app){
 
 
 	app.get('/userpage', function(req,res){
-		// console.log("user" req.user);
-		// console.log("classid" req.user.classId);
+
 		userMainid = req.user.classId;
+		userLable= req.user.username;
 
 		orm.displayHomework(userMainid, function(resultsHomework){	
 		orm.displayEvents(userMainid, function(resultsEvents){	
@@ -85,7 +85,8 @@ module.exports = function(app){
 				email: req.user.email,
 				posts: results,
 				homework: resultsHomework,
-				events: resultsEvents
+				events: resultsEvents,
+				nameuse: userLable
 			})
 
 		} else {
@@ -205,7 +206,8 @@ module.exports = function(app){
 				username: req.user.username,
 				isTeacher: req.user.isTeacher,
 				email: req.user.email,
-				userData: results
+				userData: results,
+				nameuse: userLable
 			})
 		} else {
 			res.redirect('/')
@@ -221,7 +223,8 @@ module.exports = function(app){
 				layout: 'user',
 				username: req.user.username,
 				isTeacher: req.user.isTeacher,
-				email: req.user.email
+				email: req.user.email,
+				nameuse: userLable
 			})
 		} else {
 			res.redirect('/')
