@@ -81,6 +81,12 @@ tr:nth-child(even) {
   font-family: 'Francois One', sans-serif;
   font-size: 17px; }
 
+#dUser {
+  background-color: tan;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 10px;
+  float: right; }
+
 /*.testtt {
     margin-right: 100px;
 }*/

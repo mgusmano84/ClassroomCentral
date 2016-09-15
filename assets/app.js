@@ -79,7 +79,21 @@ $(document).ready(function(){
 
             }
         });
-    });    
+    });  
+
+        $('#dUser').on('click',function(){
+        var userId = $(this).attr('data-id');
+        $(this).parent().parent().remove();
+            $.post('/deleteUser', {userId: userId},
+            function(data){
+                // $(this).parent().remove();
+                
+                if(data){
+                console.log("new" + data);
+
+            }
+        });
+    });   
 
 
 })

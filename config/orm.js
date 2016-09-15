@@ -108,6 +108,18 @@ function displayUsers(ClassID, callback){
 		
 }
 
+function deleteUser(userId, callback){
+		connection.query('DELETE FROM Users WHERE userId = ? limit 1' , userId, function(err, results){
+		if (err) throw err;
+		console.log(results);
+		callback(results)
+		});
+}
+
+module.exports.deleteUser = deleteUser;
+
+
+
 module.exports.displayUsers = displayUsers;
 
 function displayPost(ClassID, callback){

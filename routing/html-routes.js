@@ -192,8 +192,20 @@ module.exports = function(app){
 		
 		});
 
+		app.post('/deleteUser', function(req, res){
 
-		// LOOK at comma's and brackets
+			console.log('req', req.body)
+			if(req.isAuthenticated()){
+				orm.deleteUser(req.body.userId, function(results){ 	
+				});
+			}	
+		else {
+
+			res.redirect('/');
+		}
+		
+		});
+	
 
 	app.get('/managestudents', function(req, res){
 		// var userId = req.user.userId;
