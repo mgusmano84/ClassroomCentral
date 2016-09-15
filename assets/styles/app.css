@@ -7,11 +7,6 @@
 .loginstyle {
   font-family: 'Fredericka the Great', cursive; }
 
-/*.stretch {
-	margin-top: 10%;
-	margin-bottom: 10%;
-	max-width: 50%;
-}*/
 body {
   overflow-x: hidden; }
 
@@ -64,6 +59,18 @@ tr:nth-child(even) {
 #postlabel {
   font-size: 17px; }
 
+#moveright {
+  margin-left: 10px; }
+
+#postEvents {
+  width: 400px; }
+
+#postHomework {
+  width: 400px; }
+
+/*.testtt {
+    margin-right: 100px;
+}*/
 /* Sidebar Toggles */
 #wrapper {
   padding-left: 0;
