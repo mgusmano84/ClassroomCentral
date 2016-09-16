@@ -28,14 +28,14 @@
                     <h1 id="homeworkstyle">Homework for the Week</h1>
                         <ul class="list-group groupchange">
                         {{#each homework}}
-                        <li class="list-group-item homeout">{{text}}<button id="dHome" data-id={{hm_id}}>Delete</button></li>
+                        <li class="list-group-item homeout">{{text}}<button class="dHome" data-id={{hm_id}}>Delete</button></li>
                         <br>
                         {{/each}}
                         </ul>
                     <h1 id="homeworkstyle">Upcoming Events></h1>
                         <ul class="list-group groupchange">
                         {{#each events}}
-                        <li class="list-group-item eventout">{{text}}<button id="dEvent" data-id={{ev_id}}>Delete</button></li>
+                        <li class="list-group-item eventout">{{text}}<button class="dEvent" data-id={{ev_id}}>Delete</button></li>
                         <br>
                         {{/each}}
                         </ul>

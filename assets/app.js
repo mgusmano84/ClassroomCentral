@@ -67,12 +67,12 @@ $(document).ready(function(){
     });
 
 
-    $('#dPost').on('click',function(){
+    $('.dPost').on('click',function(){
         var msg_id = $(this).attr('data-id');
         $(this).parent().parent().remove();
             $.post('/deletePost', {msg_id: msg_id},
             function(data){
-                $(this).parent().parent().remove();
+                // $(this).parent().parent().remove();
                 
                 if(data){
                 console.log("new" + data);
@@ -81,7 +81,7 @@ $(document).ready(function(){
         });
     });  
 
-        $('#dUser').on('click',function(){
+        $('.dUser').on('click',function(){
         var userId = $(this).attr('data-id');
         $(this).parent().parent().remove();
             $.post('/deleteUser', {userId: userId},
@@ -95,7 +95,7 @@ $(document).ready(function(){
         });
     });  
 
-         $('#dHome').on('click',function(){
+         $('.dHome').on('click',function(){
         var hm_id = $(this).attr('data-id');
         $(this).parent().remove();
             $.post('/deleteHomework', {hm_id: hm_id},
@@ -110,7 +110,7 @@ $(document).ready(function(){
     }); 
     
 
-         $('#dEvent').on('click',function(){
+         $('.dEvent').on('click',function(){
         var ev_id = $(this).attr('data-id');
         $(this).parent().remove();
             $.post('/deleteEvent', {ev_id: ev_id},

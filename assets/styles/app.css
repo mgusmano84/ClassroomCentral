@@ -78,7 +78,7 @@ tr:nth-child(even) {
 #postHomework {
   width: 400px; }
 
-#dPost {
+.dPost {
   background-color: tan;
   font-family: 'Libre Baskerville', serif;
   font-size: 10px;
@@ -91,8 +91,20 @@ tr:nth-child(even) {
   font-family: 'Francois One', sans-serif;
   font-size: 17px; }
 
-#dUser {
+.dUser {
   background-color: tan;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 10px;
+  float: right; }
+
+.dHome {
+  background-color: red;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 10px;
+  float: right; }
+
+.dEvent {
+  background-color: red;
   font-family: 'Libre Baskerville', serif;
   font-size: 10px;
   float: right; }

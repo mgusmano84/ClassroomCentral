@@ -182,7 +182,8 @@ module.exports = function(app){
 
 			console.log('req', req.body)
 			if(req.isAuthenticated()){
-				orm.deletePost(req.body.msg_id, function(results){ 	
+				orm.deletePost(req.body.msg_id, function(results){
+				res.send('deleted!') 	
 				});
 			}	
 		else {
