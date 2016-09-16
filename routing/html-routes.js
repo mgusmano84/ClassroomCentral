@@ -230,17 +230,25 @@ module.exports = function(app){
 	// This will open the editing section for teachers to add homework
 		app.get('/homework', function(req, res){
 
+		orm.displayHomework(userMainid, function(resultsHomework){
+		orm.displayEvents(userMainid, function(resultsEvents){	
 		if (req.isAuthenticated()) {
 			res.render('homework', {
 				layout: 'user',
 				username: req.user.username,
 				isTeacher: req.user.isTeacher,
 				email: req.user.email,
-				nameuse: userLable
+				nameuse: userLable,
+				homework: resultsHomework,
+				events: resultsEvents,
+
 			})
+
 		} else {
 			res.redirect('/')
-		}		
+		}
+		});
+		});	
 	});	
 
 		app.post('/homework', function(req, res){
@@ -258,6 +266,19 @@ module.exports = function(app){
 
 	});
 
+		app.post('/deleteHomework', function(req, res){
+
+			if(req.isAuthenticated()){
+				orm.deleteHomework(req.body.hm_id, function(results){ 	
+				});
+			}	
+		else {
+
+			res.redirect('/');
+		}
+		
+		});		
+
 		app.post('/newEvents', function(req, res){
 
 			console.log('body' + req.body.post);
@@ -273,7 +294,20 @@ module.exports = function(app){
 			res.redirect('/');
 		}
 
-	});		
+	});	
+
+			app.post('/deleteEvent', function(req, res){
+
+			if(req.isAuthenticated()){
+				orm.deleteEvent(req.body.ev_id, function(results){ 	
+				});
+			}	
+		else {
+
+			res.redirect('/');
+		}
+		
+		});	
 
 
 

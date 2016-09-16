@@ -93,7 +93,36 @@ $(document).ready(function(){
 
             }
         });
-    });   
+    });  
+
+         $('#dHome').on('click',function(){
+        var hm_id = $(this).attr('data-id');
+        $(this).parent().remove();
+            $.post('/deleteHomework', {hm_id: hm_id},
+            function(data){
+                // $(this).parent().remove();
+                
+                if(data){
+                console.log("new" + data);
+
+            }
+        });
+    }); 
+    
+
+         $('#dEvent').on('click',function(){
+        var ev_id = $(this).attr('data-id');
+        $(this).parent().remove();
+            $.post('/deleteEvent', {ev_id: ev_id},
+            function(data){
+                // $(this).parent().remove();
+                
+                if(data){
+                console.log("new" + data);
+
+            }
+        });
+    });        
 
 
 })

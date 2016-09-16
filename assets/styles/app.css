@@ -100,6 +100,9 @@ tr:nth-child(even) {
 .glyphicon-chevron-down {
   font-size: 23px; }
 
+.check {
+  margin-left: 10px; }
+
 /*.testtt {
     margin-right: 100px;
 }*/

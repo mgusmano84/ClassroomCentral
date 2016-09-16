@@ -150,6 +150,17 @@ function homeworkPost(homeworkPost, userIn, classId){
 
 module.exports.homeworkPost = homeworkPost;
 
+function deleteHomework(hmId, callback){
+		connection.query('DELETE FROM Homework WHERE hm_id = ?' , hmId, function(err, results){
+		if (err) throw err;
+		console.log(results);
+		callback(results)
+		});
+}
+
+module.exports.deleteHomework = deleteHomework;
+
+
 function eventPost(eventPost, userIn, classId){
 	postIt = [
 		eventPost,
@@ -164,6 +175,16 @@ function eventPost(eventPost, userIn, classId){
 }
 
 module.exports.eventPost = eventPost;
+
+function deleteEvent(evId, callback){
+		connection.query('DELETE FROM NewEvents WHERE ev_id = ?' , evId, function(err, results){
+		if (err) throw err;
+		console.log(results);
+		callback(results)
+		});
+}
+
+module.exports.deleteEvent = deleteEvent;
 
 
 function displayHomework(ClassID, callback){
