@@ -16,7 +16,8 @@ body {
 
 #pichead {
   max-height: 10%;
-  max-width: 10%; }
+  max-width: 10%;
+  margin-left: 15px; }
 
 #logout {
   right: 15px;
@@ -64,7 +65,11 @@ tr:nth-child(even) {
   width: 50%; }
 
 #makepost {
-  size: 10%; }
+  size: 10%;
+  background: #15b87a; }
+
+.btn-success {
+  background: #15b87a; }
 
 #postlabel {
   font-size: 23px; }
@@ -98,13 +103,13 @@ tr:nth-child(even) {
   float: right; }
 
 .dHome {
-  background-color: red;
+  background-color: #F56049;
   font-family: 'Libre Baskerville', serif;
   font-size: 10px;
   float: right; }
 
 .dEvent {
-  background-color: red;
+  background-color: #F56049;
   font-family: 'Libre Baskerville', serif;
   font-size: 10px;
   float: right; }
@@ -115,9 +120,16 @@ tr:nth-child(even) {
 .check {
   margin-left: 10px; }
 
-/*.testtt {
-    margin-right: 100px;
-}*/
+.modal-header {
+  background: #15b87a;
+  font-family: 'Fredericka the Great', cursive; }
+
+#postSubmit {
+  background: #15b87a; }
+
+#submitUser {
+  font-size: 13px; }
+
 /* Sidebar Toggles */
 #wrapper {
   padding-left: 0;

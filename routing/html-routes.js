@@ -61,6 +61,7 @@ module.exports = function(app){
 			actionPush: 'forteachers',
 			otherAction: "Signin"
 		});
+
 	});
 
 	// app.get('/newuser', function(req, res) {
