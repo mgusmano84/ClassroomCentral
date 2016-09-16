@@ -7,6 +7,10 @@
 .loginstyle {
   font-family: 'Fredericka the Great', cursive; }
 
+#submitUser {
+  display: inline-block;
+  margin-right: 1em; }
+
 body {
   overflow-x: hidden; }
 
@@ -41,14 +45,20 @@ tr:nth-child(even) {
 #homeworkstyle {
   font-family: 'Schoolbell', cursive;
   font-size: 30px;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   /*background-color: pink;*/ }
 
 .homeout {
   font-family: 'Libre Baskerville', serif;
   font-weight: bold;
   font-size: 17px;
-  background-color: lightblue; }
+  background-color: #e3b57b; }
+
+.eventout {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+  font-size: 17px;
+  background-color: #ccffcc; }
 
 .groupchange {
   width: 50%; }
@@ -57,7 +67,7 @@ tr:nth-child(even) {
   size: 10%; }
 
 #postlabel {
-  font-size: 17px; }
+  font-size: 23px; }
 
 #moveright {
   margin-left: 10px; }
@@ -86,6 +96,9 @@ tr:nth-child(even) {
   font-family: 'Libre Baskerville', serif;
   font-size: 10px;
   float: right; }
+
+.glyphicon-chevron-down {
+  font-size: 23px; }
 
 /*.testtt {
     margin-right: 100px;

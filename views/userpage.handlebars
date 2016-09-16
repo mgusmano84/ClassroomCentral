@@ -4,17 +4,17 @@
                 <!-- Teacher Content relating to homework and Upcoming Events -->
                 <div class="row">
                     <div class="col-lg-12">
-                    <h1 id="homeworkstyle">Homework for the Week</h1>
+                    <h1 id="homeworkstyle">Homework for the Week <span class="glyphicon glyphicon-chevron-down"></span></h1>
                         <ul class="list-group groupchange">
                         {{#each homework}}
-                        <li class="list-group-item homeout">{{text}}</li>
+                        <li class="list-group-item homeout"><span class="glyphicon glyphicon-lamp"></span> {{text}}</li>
                         <br>
                         {{/each}}
                         </ul>
-                    <h1 id="homeworkstyle">Upcoming Events</h1>
+                    <h1 id="homeworkstyle">Upcoming Events <span class="glyphicon glyphicon-chevron-down sss"></span></h1>
                         <ul class="list-group groupchange">
                         {{#each events}}
-                        <li class="list-group-item homeout">{{text}}</li>
+                        <li class="list-group-item eventout"><span class="glyphicon glyphicon-blackboard"></span> {{text}}</li>
                         <br>
                         {{/each}}
                         </ul>
@@ -25,7 +25,9 @@
                     <div class="col-lg-12">
 						<form>
 						  <div class="form-group">
-						    <label for="formGroupExampleInput" id="postlabel">Post your questions or concerns</label>
+						    <label for="formGroupExampleInput" id="postlabel">Post your Questions or Concerns <span class="glyphicon glyphicon-chevron-down"></span></label>
+
+                            
 
 						  </div>
                  <button class="btn btn-success" id="makePost">Post a Comment</button>
