@@ -61,7 +61,6 @@ $(document).ready(function(){
         $(this).parent().parent().remove();
             $.post('/deletePost', {msg_id: msg_id},
             function(data){
-                // $(this).parent().parent().remove();
                 
                 if(data){
                 console.log("new" + data);
