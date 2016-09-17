@@ -44,16 +44,12 @@ $(document).ready(function(){
 
     $('#makePostone').on('click',function(){
         console.log($('#postHomework').val().trim());
-
-                    $.post(currentURL + '/homework', {
-                post: $('#postHomework').val().trim(),
-            },
-
-                function(data){
-                    if(data){
-                    console.log("new" + data);
-                    }
-                });
+        $.post(currentURL + '/homework', {
+        post: $('#postHomework').val().trim(),
+        }).done(function(data){
+            console.log("new" + data);
+            
+        });
     });
 
     $('#makePosttwo').on('click',function(){
