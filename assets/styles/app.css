@@ -174,7 +174,8 @@ td, th {
 
 #userin {
   font-size: 25px;
-  font-family: 'Schoolbell', cursive; }
+  font-family: 'Schoolbell', cursive;
+  margin-top: 15px; }
 
 .sidebar-nav {
   position: absolute;
