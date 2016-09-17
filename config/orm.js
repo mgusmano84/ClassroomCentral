@@ -1,21 +1,21 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection(process.env.JAWSDB_URL);
+// var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
-connection.connect();
+// connection.connect();
 
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-  if (err) throw err;
+// connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+//   if (err) throw err;
 
-  console.log('The solution is: ', rows[0].solution);
-});
-
-// var connection = mysql.createConnection({
-// 	host: 'localhost',
-// 	user: 'root',
-// 	password: process.argv[2],
-// 	database: 'ClassroomCentral'
+//   console.log('The solution is: ', rows[0].solution);
 // });
+
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: process.argv[2],
+	database: 'ClassroomCentral'
+});
 
 // Connects to MySQL DataBase
 function connectToDB(){
@@ -141,9 +141,9 @@ function displayPost(ClassID, callback){
 module.exports.displayPost = displayPost;
 
 // Make a homework post to userpage by the teacher
-function homeworkPost(homeworkPost, userIn, classid){
+function homeworkPost(homeworkpost, userIn, classid){
 	postIt = [
-		homeworkPost,
+		homeworkpost,
 		userIn,
 		classid
 	];
@@ -168,13 +168,13 @@ function deleteHomework(hmId, callback){
 module.exports.deleteHomework = deleteHomework;
 
 // Allows creaation of event post
-function eventPost(eventPost, userIn, classId){
+function eventPost(eventPost, userIn, classid){
 	postIt = [
 		eventPost,
 		userIn,
-		classId
+		classid
 	];
-	connection.query('INSERT INTO NewEvents (text, userId, ClassId) VALUES (?, ?, ?)',postIt, function(err, results){
+	connection.query('INSERT INTO NewEvents (text, userId, classId) VALUES (?, ?, ?)',postIt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
@@ -199,7 +199,6 @@ module.exports.deleteEvent = deleteEvent;
 function displayHomework(ClassID, callback){
 	connection.query('SELECT * FROM Homework WHERE classId = ?' , ClassID, function(err, results){
 		if (err) throw err;
-		console.log("orm check:" + results);
 		callback(results)
 		});
 		
@@ -211,7 +210,6 @@ module.exports.displayHomework = displayHomework;
 function displayEvents(ClassID, callback){
 	connection.query('SELECT * FROM NewEvents WHERE classId = ?' , ClassID, function(err, results){
 		if (err) throw err;
-		console.log("orm check:" + results);
 		callback(results)
 		});
 		
