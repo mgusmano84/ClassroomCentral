@@ -1,21 +1,26 @@
 var mysql = require('mysql');
 
-// var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
-// connection.connect();
+// Heroku ACCESS
 
-// connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-//   if (err) throw err;
+var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
-//   console.log('The solution is: ', rows[0].solution);
-// });
+connection.connect();
 
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: process.argv[2],
-	database: 'ClassroomCentral'
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+
+  console.log('The solution is: ', rows[0].solution);
 });
+
+// Local ACCESS
+
+// var connection = mysql.createConnection({
+// 	host: 'localhost',
+// 	user: 'root',
+// 	password: process.argv[2],
+// 	database: 'ClassroomCentral'
+// });
 
 // Connects to MySQL DataBase
 function connectToDB(){
