@@ -135,7 +135,7 @@ module.exports.deleteUser = deleteUser;
 // This will allow posts to display on userpage
 function displayPost(ClassID, callback){
 	console.log("CLassid" + ClassID);
-	connection.query('SELECT * FROM Post WHERE classId = ?' , ClassID, function(err, results){
+	connection.query('SELECT *, DATE_FORMAT(created, "%b %d %Y %h:%i %p") as created FROM Post WHERE classId = ?' , ClassID, function(err, results){
 		if (err) throw err;
 		console.log("orm check:" + results);
 		callback(results)

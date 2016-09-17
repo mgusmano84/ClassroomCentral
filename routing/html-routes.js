@@ -138,7 +138,7 @@ module.exports = function(app){
 
 			console.log('body' + req.body.post)
 			console.log('user' + req.user.userId);
-			// req.user.classId = req.user.classId;
+			req.user.created = req.user.classId;
 
 			if(req.isAuthenticated()){
 			orm.makePost(req.body.post, req.user.userId, req.user.classId, req.user.username);

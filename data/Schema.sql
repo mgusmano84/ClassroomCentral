@@ -19,7 +19,7 @@ CREATE TABLE   Post (
     msg_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     text varchar(200) NOT NULL,
     userId int(11) NOT NULL,
-    created DATETIME DEFAULT NULL,
+    created datetime NOT NULL DEFAULT NOW(),
     classId integer,
     usernameP varchar(100) NOT NULL,
     FOREIGN KEY (userId) REFERENCES Users(userId)

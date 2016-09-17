@@ -40,22 +40,43 @@
                 {{!-- Receive Posts --}}
                 <div class="row">
                     <div class="col-lg-12">
-					          <table id="postTable">
-                    {{#each posts}}
-                    <tr class="tr">
-                    <td class="td2">Post From: {{usernameP}}</td>
-                    <td class="td2">{{text}} <button class="dPost" data-id={{msg_id}}>Delete</button></td>
-                    </tr>
-                    {{/each}}
-                    </table>
-
-
+                       <div id='tablepost'>
+                        {{#each posts}}
+                            <div id="datetime">
+                                <span id='usersize'>Post From: </span>
+                                <span id='sizename'>{{usernameP}} </span>
+                                <span id='usersize'>({{created}})</span>
+                                <div class="td2">{{text}} 
+                                    <button class="dPost" data-id={{msg_id}}>Delete</button>
+                                </div>
+                                <br>
+                            </div>
+                             {{!-- <div class="td2">{{text}} <button class="dPost" data-id={{msg_id}}>Delete</button></div> --}}
+                        {{/each}}
+                     </div>
                     </div>
                 </div>
 
             </div>
         </div>
         <!-- /#page-content-wrapper -->
+{{!--                                <table id="postTable">
+                        {{#each posts}}
+                            <tr class="tr">
+                             <td class="td2">Post From: {{usernameP}} ({{created}})</td>
+                             <td class="td2">{{text}} <button class="dPost" data-id={{msg_id}}>Delete</button></td>
+                             </tr>
+                        {{/each}}
+                     </table> --}}
+
+
+
+
+
+
+
+
+
 
         </div>
 
