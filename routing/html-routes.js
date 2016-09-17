@@ -48,7 +48,7 @@ module.exports = function(app){
 			});
 
 	});
-
+	// Direct user to homepage to sign in
 	app.get('/signin', function(req, res){
 		res.redirect('/')
 	});
@@ -64,11 +64,7 @@ module.exports = function(app){
 
 	});
 
-	// app.get('/newuser', function(req, res) {
-	// 	res.render
-	// })
-
-
+	// Directs to main userpage to view content
 	app.get('/userpage', function(req,res){
 
 		userMainid = req.user.classId;
@@ -99,44 +95,17 @@ module.exports = function(app){
 	});	
 
 
-
-		// // var userId = req.user.userId;
-		// // var isTeacher = req.user.isTeacher;
-		// orm.displayUsers(req.user.classId, function(results){
-		// 	console.log("check this out: " + results);
-		// 	if (req.isAuthenticated()) {
-		// 	res.render('addusers', {
-		// 		layout: 'user',
-		// 		username: req.user.username,
-		// 		isTeacher: req.user.isTeacher,
-		// 		email: req.user.email,
-		// 		userData: results
-		// 	})
-		// } else {
-		// 	res.redirect('/')
-		// }	
-		// });
-
-
-
-
-
-
-
-
-
-
 	app.get('/logout', function(req, res){
 	  req.logout();
 	  res.redirect('/');
 	});
 
-	// POST Routes	
-
+	// Posts to user creation	
 	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
 		res.redirect('/userpage');
 	});	
 
+	// Allows teacher to be created
 	app.post('/forteachers', function(req, res){
 		var user = new UserAdd(req.body);
 		user.isTeacher = true;
@@ -149,6 +118,7 @@ module.exports = function(app){
 		});
 	});	
 
+	// Allows teacher to create a user
     app.post('/adduser', function(req, res){
         var user = new UserAdd(req.body);
                 user.classId = req.user.classId;
@@ -163,6 +133,7 @@ module.exports = function(app){
         });
     });	
 
+    // Allows the user logged in to make a post
 	app.post('/addPost', function(req, res){
 
 			console.log('body' + req.body.post)
@@ -179,6 +150,7 @@ module.exports = function(app){
 
 	});
 
+	// Allows user to delete post
 		app.post('/deletePost', function(req, res){
 
 			console.log('req', req.body)
@@ -194,6 +166,7 @@ module.exports = function(app){
 		
 		});
 
+		// Allows the teacher to delete user
 		app.post('/deleteUser', function(req, res){
 
 			console.log('req', req.body)
@@ -253,10 +226,8 @@ module.exports = function(app){
 		});	
 	});	
 
+		// Post homework to mysql
 		app.post('/homework', function(req, res){
-
-			// console.log('body' + req.body.post)
-			// console.log('user' + req.user.userId);
 
 			if(req.isAuthenticated()){
 			orm.homeworkPost(req.body.post, req.user.userId, req.user.classId);
@@ -268,6 +239,7 @@ module.exports = function(app){
 
 	});
 
+		// delete homework in mysql
 		app.post('/deleteHomework', function(req, res){
 
 			if(req.isAuthenticated()){
@@ -281,6 +253,7 @@ module.exports = function(app){
 		
 		});		
 
+		// Post new event
 		app.post('/newEvents', function(req, res){
 
 			console.log('body' + req.body.post);
@@ -297,7 +270,7 @@ module.exports = function(app){
 		}
 
 	});	
-
+		// Delete an event
 			app.post('/deleteEvent', function(req, res){
 
 			if(req.isAuthenticated()){
