@@ -118,7 +118,7 @@ tr:nth-child(even) {
   font-size: 23px; }
 
 .check {
-  margin-left: 10px; }
+  margin-left: 0px; }
 
 .modal-header {
   background: #15b87a;
