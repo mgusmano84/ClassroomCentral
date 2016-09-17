@@ -36,7 +36,7 @@ $(document).ready(function(){
     // This will post homework
     $('#makePostone').on('click',function(){
 
-        $.post('/homework', {
+        $.post('/homeworkk', {
             post: $('#postHomework').val().trim(),
         }).done(function(data){
             console.log("new" + data);
