@@ -2,6 +2,11 @@ body {
     overflow-x: hidden;
  }
 
+ .imggg {
+    background-image: url("/images/img3.png");
+    
+}
+
 #pichead {
 	max-height: 10%;
 	max-width: 10%;
@@ -41,8 +46,6 @@ tr:nth-child(even) {
 #homeworkstyle {
     font-family: 'Schoolbell', cursive;
     font-size: 30px;
-    /*text-decoration: underline;*/
-    /*background-color: pink;*/
 }
 
 .homeout {
