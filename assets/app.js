@@ -36,8 +36,8 @@ $(document).ready(function(){
     // This will post homework
     $('#makePostone').on('click',function(){
 
-        $.post(currentURL + '/homework', {
-        post: $('#postHomework').val().trim(),
+        $.post('/homework', {
+            post: $('#postHomework').val().trim(),
         }).done(function(data){
             console.log("new" + data);
             
@@ -47,7 +47,7 @@ $(document).ready(function(){
     // This will post Events
     $('#makePosttwo').on('click',function(){
 
-        $.post(currentURL + '/newEvents', {
+        $.post('/newEvents', {
             post: $('#postEvents').val().trim(),
         }).done(function(data){
             console.log("new" + data);
