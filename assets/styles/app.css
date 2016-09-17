@@ -43,12 +43,13 @@ td, th {
   text-align: left;
   padding: 8px; }
 
-tr:nth-child(even) {
-  background-color: #dddddd; }
-
+/*tr:nth-child(even) {
+    background-color: #7FABB5;
+}*/
 #homeworkstyle {
   font-family: 'Schoolbell', cursive;
-  font-size: 30px; }
+  font-size: 30px;
+  color: white; }
 
 .homeout {
   font-family: 'Libre Baskerville', serif;
@@ -73,7 +74,8 @@ tr:nth-child(even) {
   background: #15b87a; }
 
 #postlabel {
-  font-size: 23px; }
+  font-size: 23px;
+  color: white; }
 
 #moveright {
   margin-left: 10px; }
@@ -95,7 +97,8 @@ tr:nth-child(even) {
   text-align: left;
   padding: 8px;
   font-family: 'Francois One', sans-serif;
-  font-size: 17px; }
+  font-size: 17px;
+  color: white; }
 
 .dUser {
   background-color: tan;

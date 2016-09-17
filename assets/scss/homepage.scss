@@ -39,13 +39,14 @@ td, th {
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
+/*tr:nth-child(even) {
+    background-color: #7FABB5;
+}*/
 
 #homeworkstyle {
     font-family: 'Schoolbell', cursive;
     font-size: 30px;
+    color: white;
 }
 
 .homeout {
@@ -78,6 +79,7 @@ tr:nth-child(even) {
 
 #postlabel {
     font-size: 23px;
+    color: white;
 }
 
 #moveright {
@@ -105,6 +107,7 @@ tr:nth-child(even) {
     padding: 8px;
     font-family: 'Francois One', sans-serif;
     font-size: 17px;
+    color: white;
 }
 
 .dUser {
