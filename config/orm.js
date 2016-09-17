@@ -1,21 +1,21 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection(process.env.JAWSDB_URL);
+// var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
-connection.connect();
+// connection.connect();
 
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-  if (err) throw err;
+// connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+//   if (err) throw err;
 
-  console.log('The solution is: ', rows[0].solution);
-});
-
-// var connection = mysql.createConnection({
-// 	host: 'localhost',
-// 	user: 'root',
-// 	password: process.argv[2],
-// 	database: 'ClassroomCentral'
+//   console.log('The solution is: ', rows[0].solution);
 // });
+
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: process.argv[2],
+	database: 'ClassroomCentral'
+});
 
 // Connects to MySQL DataBase
 function connectToDB(){

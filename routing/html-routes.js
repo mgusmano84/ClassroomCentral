@@ -229,7 +229,7 @@ module.exports = function(app){
 	});	
 
 		// Post homework to mysql
-		app.post('/homeworkk', function(req, res){
+		app.post('/homework', function(req, res){
 
 			if(req.isAuthenticated()){
 			orm.homeworkPost(req.body.post, req.user.userId, req.user.classId);
