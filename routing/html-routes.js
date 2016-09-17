@@ -213,7 +213,7 @@ module.exports = function(app){
 				username: req.user.username,
 				isTeacher: req.user.isTeacher,
 				email: req.user.email,
-				nameuse: userLable,
+				// nameuse: userLable,
 				homework: resultsHomework,
 				events: resultsEvents,
 
