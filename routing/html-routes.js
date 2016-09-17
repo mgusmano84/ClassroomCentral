@@ -183,8 +183,7 @@ module.exports = function(app){
 	
 
 	app.get('/managestudents', function(req, res){
-		// var userId = req.user.userId;
-		// var isTeacher = req.user.isTeacher;
+
 		orm.displayUsers(req.user.classId, function(results){
 			console.log("check this out: " + results);
 			if (req.isAuthenticated()) {
@@ -204,6 +203,7 @@ module.exports = function(app){
 
 	// This will open the editing section for teachers to add homework
 		app.get('/homework', function(req, res){
+
 		userMainid = req.user.classId;
 		userLable= req.user.username;
 

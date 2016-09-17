@@ -142,12 +142,12 @@ module.exports.displayPost = displayPost;
 
 // Make a homework post to userpage by the teacher
 function homeworkPost(homeworkpost, userIn, classid){
-	postIt = [
+	postItt = [
 		homeworkpost,
 		userIn,
 		classid
 	];
-	connection.query('INSERT INTO homework (text, userId, classId) VALUES (?, ?, ?)',postIt, function(err, results){
+	connection.query('INSERT INTO homework (text, userId, classId) VALUES (?, ?, ?)',postItt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
