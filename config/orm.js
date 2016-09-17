@@ -147,7 +147,7 @@ function homeworkPost(homeworkpost, userIn, classid){
 		userIn,
 		classid
 	];
-	connection.query('INSERT INTO homework (text, userId, classId) VALUES (?, ?, ?)',postItt, function(err, results){
+	connection.query('INSERT INTO Homework (text, userId, classId) VALUES (?, ?, ?)',postItt, function(err, results){
 		if (err) throw err;
 		console.log(results);
 		});
